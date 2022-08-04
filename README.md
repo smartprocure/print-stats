@@ -9,6 +9,8 @@ Shows you:
 4. Overall elapsed time.
 
 ```typescript
+import { stats } from 'print-stats'
+
 const dbStats = stats('myCollection')
 
 const records = await getSomeData()
