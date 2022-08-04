@@ -1,0 +1,32 @@
+{
+  "name": "print-stats",
+  "version": "0.1.0",
+  "description": "Print stats when processing rows - records/second, elapsed time, etc. ",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "prepare": "npm run lint && npm run build",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc --declaration",
+    "build:develop": "tsc --watch",
+    "lint": "eslint src/**"
+  },
+  "repository": "git://github.com/smartprocure/print-stats.git",
+  "keywords": ["stats", "row", "processing", "records", "second"],
+  "author": "GovSpend",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.6.3",
+    "@types/numeral": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "eslint": "^8.21.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "convert-hrtime": "^5.0.0",
+    "numeral": "^2.0.6",
+    "pretty-ms": "^8.0.0"
+  }
+}
