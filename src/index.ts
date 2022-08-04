@@ -3,15 +3,18 @@ import prettyMs from 'pretty-ms'
 import numeral from 'numeral'
 import util from 'node:util'
 
-export const stats = (label: string = 'Stats') => {
+/**
+ * Get stats about rows.
+ */
+export const stats = (label = 'Stats') => {
   const startTime = process.hrtime.bigint()
   let numRows = 0
   let numErrors = 0
-  const incRows = () => {
-    numRows++
+  const incRows = (amount = 1) => {
+    numRows += amount
   }
-  const incErrors = () => {
-    numErrors++
+  const incErrors = (amount = 1) => {
+    numErrors += amount
   }
   const getCurrent = () => {
     const currentTime = process.hrtime.bigint()
@@ -27,5 +30,8 @@ export const stats = (label: string = 'Stats') => {
       prettyMs(millisElapsed)
     )
   }
-  return { calculate: getCurrent }
+  const print = () => {
+    console.info(getCurrent())
+  }
+  return { getCurrent, print, incRows, incErrors }
 }
