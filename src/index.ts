@@ -20,7 +20,7 @@ export const stats = (label = 'Stats') => {
     const currentTime = process.hrtime.bigint()
     const { milliseconds: millisElapsed, seconds: secondsElapsed } =
       convertHrtime(currentTime - startTime)
-    const rate = Math.floor(numRows / secondsElapsed)
+    const rate = Math.floor((numRows + numErrors) / secondsElapsed)
     return util.format(
       '%s: Rows %s | Errors %s | Rate %s rec/sec | Elapsed %s',
       label,
